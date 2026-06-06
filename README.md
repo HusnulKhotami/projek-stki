@@ -3,7 +3,7 @@
 Sistem Temu Kembali Informasi (STKI) berbasis Web Dashboard untuk melakukan pencarian buku pintar berdasarkan relevansi konteks makna pada teks sinopsis menggunakan kombinasi pembobotan **TF-IDF** dan pengukuran sudut **Cosine Similarity**.
 
 ## Struktur Repositori
-* `data/` : Menyimpan database file Katalog_Buku_STKI_115.csv.
+* `data/` : Menyimpan database file katalogperpus.csv.
 * `preprocessing.py` : Pipa pembersihan teks bahasa Indonesia (Sastrawi).
 * `indexing.py` : Pembentukan Vektor Ruang dan hitung matriks TF-IDF.
 * `retrieval.py` : Logika pencarian kedekatan sudut dan penentuan ranking.
