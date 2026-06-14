@@ -5,26 +5,18 @@ from indexing import load_and_index_dataset
 from retrieval import dapatkan_pencarian_buku
 from evaluasi import evaluasi_performa_sistem  
 
-# =========================================================
-# 1. SETTING KONFIGURASI UTAMA SISTEM
-# =========================================================
+
 st.set_page_config(
     page_title="Katalog Buku", 
     layout="wide", 
 )
 
-# =========================================================
-# 2. CACHING DATASET & INDEKS MATRIKS TF-IDF
-# =========================================================
 @st.cache_resource
 def inisialisasi_stki():
     return load_and_index_dataset()
 
 df, vectorizer, tfidf_matrix = inisialisasi_stki()
 
-# =========================================================
-# 3. FUNGSI STABILO TEKS HIGHLIGHT SINOPSIS (HTML AMAN)
-# =========================================================
 def beri_efek_stabilo(teks, kata_kunci):
     if not kata_kunci:
         return teks
@@ -36,9 +28,6 @@ def beri_efek_stabilo(teks, kata_kunci):
     return teks
 
 
-# =========================================================
-# 4. INTEGRATED HEADER & TAB NAVIGATION MENU (TERPUSAT)
-# =========================================================
 with st.container():
     st.title("Sistem Temu Kembali Informasi")
     st.subheader("Katalog Buku Pintar — Jurusan Ilmu Komputer Universitas Lampung")
