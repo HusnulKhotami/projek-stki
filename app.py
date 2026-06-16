@@ -38,14 +38,12 @@ with st.container():
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Membuat Tab Menu navigasi utama tepat bersatu di dalam struktur Header
     tab_home, tab_browse, tab_eval = st.tabs([
         "Beranda & Arsitektur", 
         "Jelajah & Simulator Teks", 
         "Evaluasi Performa MAP"
     ])
     
-    # Menghubungkan fungsionalitas Material Icons modern pada Tab bawaan Python
     tab_home.icon = "home"
     tab_browse.icon = "explore"
     tab_eval.icon = "analytics"
@@ -53,9 +51,6 @@ with st.container():
 st.markdown("---")
 
 
-# =========================================================
-# --- TAB 1: KORPUS DATA & RUANGAN TEORI ---
-# =========================================================
 with tab_home:
     st.markdown("### Landasan Teori & Korpus Data")
     
@@ -107,14 +102,11 @@ with tab_home:
             st.latex(r"\text{AP} = \frac{1}{\min(R, K)} \sum_{k=1}^{K} (\text{Precision}@k \times \text{Rel}(k))")
 
 
-# =========================================================
-# --- TAB 2: JELAJAH DATA, SIMULATOR, & LIVE SEARCH ---
-# =========================================================
 with tab_browse:
     st.markdown("### Eksplorasi Data dan Simulasi Sistem")
     st.write("Gunakan fitur kotak pencarian terpusat atau filter data di bawah untuk melakukan pengamatan sinopsis buku.")
     
-    # Kotak Fitur Search tetap dipertahaman fungsionalitasnya di bagian panel pencarian
+
     with st.container(border=True):
         query_header = st.text_input(
             "Cari Buku:",
@@ -136,10 +128,8 @@ with tab_browse:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # Membagi visualisasi data pasif dan simulator menjadi 2 kolom horizontal
     col_left, col_right = st.columns([1, 1])
 
-    # --- KOLOM KIRI: JELAJAH DATA & KATEGORI ---
     with col_left:
         with st.container(border=True):
             st.markdown("#### Dataset")
@@ -168,7 +158,6 @@ with tab_browse:
                         st.markdown(f"**ID Buku:** `{baris['ID_Buku']}` | **Genre:** `{baris['Genre']}`")
                         st.markdown(f"**Sinopsis:** {baris['Sinopsis']}")
 
-    # --- KOLOM KANAN: SIMULATOR PREPROCESSING TEKS ---
     with col_right:
         with st.container(border=True):
             st.markdown("#### Simulasi Pipeline Preprocessing Teks")
@@ -214,9 +203,6 @@ with tab_browse:
                 st.info("ℹ️ Silakan ketik kalimat pada kolom input di atas untuk memulai simulasi data interaktif.")
 
 
-# =========================================================
-# --- TAB 3: PANEL PENGUJIAN AKURASI FORMAL ---
-# =========================================================
 with tab_eval:
     st.markdown("### Pengujian Akurasi Sistem")
     st.write(
@@ -224,7 +210,6 @@ with tab_eval:
         "berdasarkan acuan Ground Truth manual untuk menghitung nilai Precision@5 dan Mean Average Precision (MAP)."
     )
     
-    # --- VISUALISASI ALUR KERJA EVALUASI SISTEM (EDUKASI TAMBAHAN) ---
     with st.container(border=True):
         st.markdown("####  Alur Kerja Perhitungan Evaluasi Sistem")
         st.write(
